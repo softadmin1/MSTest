@@ -14,7 +14,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo '>> Start Building using MVN plugin installed'
-                sh "mvn clean install"
                 sh "mvn package docker:build"
                 echo '>> Finished Building using MVN plugin installed'
             }
