@@ -11,7 +11,9 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo '>> Start Building using MVN plugin installed'
+                sh "mvn clean install"
+                echo '>> Finished Building using MVN plugin installed'
             }
         }
         stage('Test') {
