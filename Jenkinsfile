@@ -15,6 +15,7 @@ pipeline {
             steps {
                 echo '>> Start Building using MVN plugin installed'
                 sh "mvn clean install"
+                sh "mvn package"
                 echo '>> Finished Building using MVN plugin installed'
             }
         }
