@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo '>> Start Building using MVN plugin installed'
-                sh "mvn package docker:build"
+                sh "sudo mvn package docker:build"
                 echo '>> Finished Building using MVN plugin installed'
             }
         }
