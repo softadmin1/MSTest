@@ -55,20 +55,6 @@
            </resource>
         </resources>
       </configuration>
-	<executions>
-		<execution>
-			<id>tag-image-latest</id>
-			<phase>deploy</phase>
-			<goals>
-				<goal>tag</goal>
-			</goals>
-			<configuration>
-				<image>${docker.image.prefix}/${project.artifactId}</image>
-				<newName>${docker.repository}/${docker.image.prefix}/${project.artifactId}:latest</newName>
-				<pushImage>true</pushImage>
-			</configuration>
-		</execution>
-	</executions>
     </plugin>
 		</plugins>
 	</build>
