@@ -15,7 +15,14 @@ pipeline {
         echo '>>>>>>>>>>>>>>  Finished getting source code from Jithub'
       }
     }
-    stage('Building image') {
+    stage('Building Source Code') {
+      steps{
+        script {
+          sh "mvn clean install"
+        }
+      }
+    }
+    stage('Building Docker Image') {
       steps{
         script {
           docker.build registry + "latest"
