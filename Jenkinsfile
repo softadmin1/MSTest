@@ -15,11 +15,6 @@ pipeline {
         echo '>>>>>>>>>>>>>>  Finished getting source code from Jithub'
       }
     }
-    stage('packaging') {
-      steps {
-        sh "mvn clean package"
-      }
-    }
     stage('Building image') {
       steps{
         script {
