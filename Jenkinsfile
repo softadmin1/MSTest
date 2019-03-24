@@ -2,6 +2,7 @@ pipeline {
   environment {
     registry = "softcloudhub/demoboot"
     registryCredential = "dockerhubaccount"
+    dockerImage = ""
   }
   agent any
   tools {
@@ -25,7 +26,7 @@ pipeline {
     stage('Building Docker Image') {
       steps{
         script {
-          docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
