@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "softcloudhub/demoboot"
-    registryCredential = ‘dockerhubaccount’
+    registryCredential = "dockerhubaccount"
   }
   agent any
   tools {
