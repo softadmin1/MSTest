@@ -10,17 +10,18 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        echo '>>>>>>>>>>>>>>  Start getting source code from Jithub'
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github-account', url: 'https://github.com/softadmin1/MSTest.git']]])
-        echo '>>>>>>>>>>>>>>  Finished getting source code from Jithub'
+        git 'https://github.com/softadmin1/MSTest.gi'
+      }
+    }
+    stage('packaging') {
+      steps {
+        sh "mvn clean package"
       }
     }
     stage('Building image') {
       steps{
         script {
-          echo '>> Start Building using MVN plugin installed'
-          sh "mvn package docker:build"
-          echo '>> Finished Building using MVN plugin installed'
+          docker.build registry + "latest"
         }
       }
     }
